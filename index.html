@@ -237,10 +237,10 @@
             <section id="reels" class="mb-16 animate-section-in delay-2">
                 <h3 class="text-2xl font-bold mb-4 text-secondary-pink">Short-Form Reels</h3>
                 <p class="text-text-muted-dark mb-8 max-w-3xl">High-engagement, high-velocity content optimized for Instagram and LinkedIn. These projects feature a vibrant, light aesthetic.</p>
-                <!-- GAP INCREASED: gap-12 changed to gap-16 for increased separation in the Reels section only -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-16">
-                    <!-- Reel 1: Light Pink Theme - STARTS AT COLUMN 2 for centering 3 cards in 5 columns -->
-                    <div class="group light-card reel-pink bg-light-reel-pink p-5 rounded-xl shadow-xl border border-secondary-pink/50 transition duration-300 hover:shadow-neon-pink hover:bg-white flex flex-col h-full lg:col-start-2">
+                <!-- GRID: lg:grid-cols-3 (1/3 width) is maintained -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
+                    <!-- Reel 1: Card now occupies full grid cell width -->
+                    <div class="group light-card reel-pink bg-light-reel-pink p-5 rounded-xl shadow-xl border border-secondary-pink/50 transition duration-300 hover:shadow-neon-pink hover:bg-white flex flex-col h-full">
                         <!-- Standardized to h-48 -->
                         <div class="w-full h-48 bg-gray-100 rounded-lg flex items-center justify-center mb-6 border border-gray-300">
                             <p class="text-secondary-pink">Video Placeholder</p>
@@ -278,11 +278,11 @@
             <!-- SHORT FILM -->
             <section id="shortfilms" class="mb-16 animate-section-in delay-3">
                 <h3 class="text-2xl font-bold mb-4 text-primary-dark">Short Film</h3>
-                <!-- UPDATED GAP: gap-8 changed to gap-12 -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-                    <!-- Short Film: Blue Theme - Starts at column 2 for centering -->
+                <!-- MODIFIED: Changed from lg:grid-cols-1 to lg:grid-cols-3 to match Reel card width and keep consistency with the new Strategy section below -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
+                    <!-- Short Film: Centered to 1/3 width -->
                     <div class="group light-card film-blue bg-light-card-accent p-5 rounded-xl shadow-xl border border-primary-blue/50 transition duration-300 hover:shadow-neon-blue hover:bg-white flex flex-col h-full lg:col-start-2">
-                        <!-- Standardized to h-48 (was h-56) -->
+                        <!-- Standardized to h-48 -->
                         <div class="w-full h-48 bg-white rounded-lg flex items-center justify-center mb-6 border border-gray-300">
                             <p class="text-primary-blue">Short Film Placeholder</p>
                         </div>
@@ -298,11 +298,11 @@
             <section id="assessment" class="mb-20 animate-section-in delay-4">
                 <h3 class="text-2xl font-bold mb-4 text-red-600">Interview Assessment</h3>
                 <p class="text-text-muted-dark mb-8 max-w-3xl">Review mock assignments and practical tasks completed during interview processes, demonstrating skill and strategic thinking.</p>
-                <!-- UPDATED GAP: gap-8 changed to gap-12 -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-                    <!-- Assessment 1: Red Theme - Starts at column 2 for centering the pair -->
-                    <div class="group light-card assessment-red bg-light-card-red p-5 rounded-xl shadow-xl border border-red-500/50 transition duration-300 hover:shadow-neon-red hover:bg-white flex flex-col h-full lg:col-start-2">
-                        <!-- Standardized to h-48 (was h-56) -->
+                <!-- MODIFIED: Changed to lg:grid-cols-6 for 1/3 width centering -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-16">
+                    <!-- Assessment 1: Narrowed to 1/3 width and centered -->
+                    <div class="group light-card assessment-red bg-light-card-red p-5 rounded-xl shadow-xl border border-red-500/50 transition duration-300 hover:shadow-neon-red hover:bg-white flex flex-col h-full lg:col-start-2 lg:col-span-2">
+                        <!-- Standardized to h-48 -->
                         <div class="w-full h-48 bg-gray-100 rounded-lg flex items-center justify-center mb-6 border border-gray-300">
                             <p class="text-red-500">Assessment File Preview</p>
                         </div>
@@ -311,9 +311,9 @@
                         <p class="text-sm text-text-muted-dark min-h-16 mb-8 text-center">A comprehensive audit of a mock client's social channels with strategic recommendations for a Q4 marketing push.</p>
                         <a class="block text-center bg-red-500 hover:bg-red-600 text-white font-semibold py-3 rounded-lg transition duration-200 shadow-md shadow-red-500/30 transform hover:-translate-y-1 hover:shadow-xl mt-auto" href="#">Review Assessment</a>
                     </div>
-                    <!-- Assessment 2: Red Theme -->
-                    <div class="group light-card assessment-red bg-light-card-red p-5 rounded-xl shadow-xl border border-red-500/50 transition duration-300 hover:shadow-neon-red hover:bg-white flex flex-col h-full">
-                        <!-- Standardized to h-48 (was h-56) -->
+                    <!-- Assessment 2: Narrowed to 1/3 width -->
+                    <div class="group light-card assessment-red bg-light-card-red p-5 rounded-xl shadow-xl border border-red-500/50 transition duration-300 hover:shadow-neon-red hover:bg-white flex flex-col h-full lg:col-span-2">
+                        <!-- Standardized to h-48 -->
                         <div class="w-full h-48 bg-gray-100 rounded-lg flex items-center justify-center mb-6 border border-gray-300">
                             <p class="text-red-500">Content Calendar Draft</p>
                         </div>
@@ -330,10 +330,10 @@
                 <h3 class="text-2xl font-bold text-primary-dark mb-4">Canva & Graphic Design</h3>
                 <!-- UPDATED DESCRIPTION -->
                 <p class="text-text-muted-dark mb-8 max-w-3xl">A selection of my best graphic design work, utilizing Canva and other tools to create high-impact social media creatives and infographics.</p>
-                <!-- UPDATED GAP: gap-8 changed to gap-12 -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-                    <!-- Canva 1: Yellow Theme - Starts at column 2 for centering the pair -->
-                    <div class="group light-card canva-yellow bg-light-card-yellow p-5 rounded-xl shadow-xl border border-amber-400/50 transition duration-300 hover:shadow-neon-yellow hover:bg-white flex flex-col h-full lg:col-start-2">
+                <!-- MODIFIED: Changed to lg:grid-cols-6 for 1/3 width centering -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-16">
+                    <!-- Canva 1: Narrowed to 1/3 width and centered -->
+                    <div class="group light-card canva-yellow bg-light-card-yellow p-5 rounded-xl shadow-xl border border-amber-400/50 transition duration-300 hover:shadow-neon-yellow hover:bg-white flex flex-col h-full lg:col-start-2 lg:col-span-2">
                         <!-- Standardized to h-48 (was h-56) -->
                         <div class="w-full h-48 bg-white rounded-lg flex items-center justify-center mb-6 border border-gray-300">
                             <p class="text-amber-500">Poster Placeholder</p>
@@ -343,8 +343,8 @@
                         <p class="text-sm text-text-muted-dark min-h-16 mb-8 text-center">Social media poster focusing on clean typography and high contrast visuals for a tech startup launch event.</p>
                         <a class="block text-center bg-amber-500 hover:bg-amber-600 text-primary-dark font-semibold py-3 rounded-lg transition duration-200 shadow-md shadow-amber-500/30 transform hover:-translate-y-1 hover:shadow-xl mt-auto" href="#">See Design</a>
                     </div>
-                    <!-- Canva 2: Yellow Theme -->
-                    <div class="group light-card canva-yellow bg-light-card-yellow p-5 rounded-xl shadow-xl border border-amber-400/50 transition duration-300 hover:shadow-neon-yellow hover:bg-white flex flex-col h-full">
+                    <!-- Canva 2: Narrowed to 1/3 width -->
+                    <div class="group light-card canva-yellow bg-light-card-yellow p-5 rounded-xl shadow-xl border border-amber-400/50 transition duration-300 hover:shadow-neon-yellow hover:bg-white flex flex-col h-full lg:col-span-2">
                         <!-- Standardized to h-48 (was h-56) -->
                         <div class="w-full h-48 bg-white rounded-lg flex items-center justify-center mb-6 border border-gray-300">
                             <p class="text-amber-500">Poster Placeholder</p>
@@ -362,9 +362,9 @@
                 <h3 class="text-2xl font-bold text-primary-dark mb-4">Content Strategy & Planning</h3>
                 <!-- UPDATED DESCRIPTION -->
                 <p class="text-text-muted-dark mb-8 max-w-3xl">Demonstrating strategic vision through long-term content plans, market audits, and detailed performance metric roadmaps.</p>
-                <!-- UPDATED GAP: gap-8 changed to gap-12 -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-                    <!-- Strategy Card - Starts at column 2 for centering -->
+                <!-- MODIFIED: Changed from lg:grid-cols-1 to lg:grid-cols-3 to match Reel card width and keep consistency with the new Short Film section above -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
+                    <!-- Strategy Card - Centered to 1/3 width -->
                     <div class="group strategy-green dark-strategy-gradient text-white p-5 rounded-xl shadow-3xl border-2 border-teal-400 transition duration-300 hover:shadow-neon-green flex flex-col h-full lg:col-start-2">
                         <!-- Standardized to h-48 (was h-56) -->
                         <div class="w-full h-48 bg-gray-700 rounded-lg flex items-center justify-center mb-6 border border-teal-400/50">
