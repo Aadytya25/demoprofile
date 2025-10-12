@@ -43,7 +43,7 @@
 
         // --- JavaScript Functions for UX ---
 
-        // 2. Mobile Menu Toggle - RESTORED
+        // 2. Mobile Menu Toggle
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');
@@ -72,7 +72,7 @@
                     // Close mobile menu after clicking a link
                     const mobileMenu = document.getElementById('mobile-menu');
                     if (!mobileMenu.classList.contains('hidden')) {
-                         mobileMenu.classList.add('hidden');
+                           mobileMenu.classList.add('hidden');
                     }
                 });
             });
@@ -84,8 +84,6 @@
             /* Lighter, softer background gradient */
             background: linear-gradient(to bottom right, #f8faff, #f3f4f6); 
             padding-top: 64px; /* Space for fixed header */
-            
-            /* REMOVED: Global zoom-out effect (transform: scale(0.85);) */
         }
         html {
             scroll-behavior: smooth;
@@ -139,7 +137,7 @@
         }
         /* --- END Custom Styles --- */
 
-        /* --- NEW ANIMATIONS (Kept from previous steps) --- */
+        /* --- NEW ANIMATIONS --- */
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -163,7 +161,7 @@
         .delay-3 { animation-delay: 0.6s; } 
         .delay-4 { animation-delay: 0.8s; } 
         .delay-5 { animation-delay: 1.0s; } 
-        .delay-6 { animation-delay: 1.2s; } /* Added delay for new section */
+        .delay-6 { animation-delay: 1.2s; }
         /* --- END NEW ANIMATIONS --- */
     </style>
 </head>
@@ -183,7 +181,7 @@
                 <a class="text-primary-dark hover:text-secondary-pink transition duration-200" href="#contact">Contact</a>
             </nav>
 
-            <!-- Mobile Menu Button - RESTORED --><button class="md:hidden p-2 rounded-lg text-primary-dark hover:bg-gray-100" onclick="toggleMobileMenu()">
+            <!-- Mobile Menu Button --><button class="md:hidden p-2 rounded-lg text-primary-dark hover:bg-gray-100" onclick="toggleMobileMenu()">
                 <!-- SVG Hamburger Icon --><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <line x1="4" x2="20" y1="12" y2="12" />
                     <line x1="4" x2="20" y1="6" y2="6" />
@@ -192,7 +190,7 @@
             </button>
         </div>
 
-        <!-- Mobile Menu Dropdown - RESTORED --><nav id="mobile-menu" class="hidden md:hidden px-4 pb-4 border-t border-gray-200 bg-card-bg-light">
+        <!-- Mobile Menu Dropdown --><nav id="mobile-menu" class="hidden md:hidden px-4 pb-4 border-t border-gray-200 bg-card-bg-light">
             <a class="block py-2 text-primary-dark hover:text-primary-blue transition duration-200 font-semibold uppercase" href="#reels">Short-Form Reels</a>
             <a class="block py-2 text-primary-dark hover:text-primary-blue transition duration-200 font-semibold uppercase" href="#shortfilms">Short Film</a>
             <a class="block py-2 text-primary-dark hover:text-red-600 transition duration-200 font-semibold uppercase" href="#assessment">Interview Assessment</a>
@@ -203,8 +201,7 @@
     </header>
 
 
-    <!-- UPDATED: Increased vertical padding from py-6 to py-12 for more margin -->
-    <!-- UPDATED: Increased horizontal padding to lg:px-24 -->
+    <!-- Main Content Container -->
     <div class="container mx-auto px-4 sm:px-8 lg:px-24 py-12">
         <main>
             <!-- HERO SECTION --><section class="mb-20 pt-8 md:pt-12">
@@ -244,32 +241,35 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
                     <!-- Reel 1: Light Pink Theme - STARTS AT COLUMN 2 for centering 3 cards in 5 columns -->
                     <div class="group light-card reel-pink bg-light-reel-pink p-5 rounded-xl shadow-xl border border-secondary-pink/50 transition duration-300 hover:shadow-neon-pink hover:bg-white flex flex-col h-full lg:col-start-2">
-                        <!-- Height: h-80 is for long height -->
-                        <div class="w-full h-80 bg-gray-100 rounded-lg flex items-center justify-center mb-6 border border-gray-300">
+                        <!-- RESIZED: h-80 changed to h-64 -->
+                        <div class="w-full h-64 bg-gray-100 rounded-lg flex items-center justify-center mb-6 border border-gray-300">
                             <p class="text-secondary-pink">Video Placeholder</p>
                         </div>
                         <h3 class="text-2xl font-bold text-primary-dark mb-2 text-center">Personal Reel 1</h3>
-                        <p class="text-sm text-text-muted-dark mb-8 text-center">A fast-paced, motivational reel covering self-improvement topics. Focus on dynamic text and cuts.</p>
+                        <!-- CLASS ADDED: min-h-16 for normalized size -->
+                        <p class="text-sm text-text-muted-dark min-h-16 mb-8 text-center">A fast-paced, motivational reel covering self-improvement topics. Focus on dynamic text and cuts.</p>
                         <a class="block text-center bg-secondary-pink hover:bg-pink-600 text-white font-bold py-3 rounded-lg transition duration-200 shadow-md shadow-secondary-pink/30 transform hover:-translate-y-1 hover:shadow-xl mt-auto" href="#">Watch Reel</a>
                     </div>
                     <!-- Reel 2: Light Purple Theme -->
                     <div class="group light-card reel-purple bg-light-reel-purple p-5 rounded-xl shadow-xl border border-purple-400/50 transition duration-300 hover:shadow-neon-purple hover:bg-white flex flex-col h-full">
-                        <!-- Height: h-80 is for long height -->
-                        <div class="w-full h-80 bg-gray-100 rounded-lg flex items-center justify-center mb-6 border border-gray-300">
+                        <!-- RESIZED: h-80 changed to h-64 -->
+                        <div class="w-full h-64 bg-gray-100 rounded-lg flex items-center justify-center mb-6 border border-gray-300">
                             <p class="text-purple-500">Video Placeholder</p>
                         </div>
                         <h3 class="text-2xl font-bold text-primary-dark mb-2 text-center">Travel Diaries</h3>
-                        <p class="text-sm text-text-muted-dark mb-8 text-center">Slow-motion B-roll and cinematic editing highlighting recent travel experiences in Asia.</p>
+                        <!-- CLASS ADDED: min-h-16 for normalized size -->
+                        <p class="text-sm text-text-muted-dark min-h-16 mb-8 text-center">Slow-motion B-roll and cinematic editing highlighting recent travel experiences in Asia.</p>
                         <a class="block text-center bg-purple-500 hover:bg-purple-600 text-white font-bold py-3 rounded-lg transition duration-200 shadow-md shadow-purple-500/30 transform hover:-translate-y-1 hover:shadow-xl mt-auto" href="#">Catch the Vibe</a>
                     </div>
                     <!-- Reel 3: Light Cyan Theme -->
                     <div class="group light-card reel-cyan bg-light-reel-cyan p-5 rounded-xl shadow-xl border border-cyan-400/50 transition duration-300 hover:shadow-neon-cyan hover:bg-white flex flex-col h-full">
-                        <!-- Height: h-80 is for long height -->
-                        <div class="w-full h-80 bg-gray-100 rounded-lg flex items-center justify-center mb-6 border border-gray-300">
+                        <!-- RESIZED: h-80 changed to h-64 -->
+                        <div class="w-full h-64 bg-gray-100 rounded-lg flex items-center justify-center mb-6 border border-gray-300">
                             <p class="text-cyan-500">Action Video Here</p>
                         </div>
                         <h3 class="text-2xl font-bold text-primary-dark mb-2 text-center">Daily Workout Routine</h3>
-                        <p class="text-sm text-text-muted-dark mb-8 text-center">High-energy fitness segment designed to maximize motivation and share quick tips for morning exercise.</p>
+                        <!-- CLASS ADDED: min-h-16 for normalized size -->
+                        <p class="text-sm text-text-muted-dark min-h-16 mb-8 text-center">High-energy fitness segment designed to maximize motivation and share quick tips for morning exercise.</p>
                         <a class="block text-center bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 rounded-lg transition duration-200 shadow-md shadow-cyan-500/30 transform hover:-translate-y-1 hover:shadow-xl mt-auto" href="#">Start Challenge</a>
                     </div>
                 </div>
@@ -282,12 +282,13 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Short Film: Blue Theme - Starts at column 2 for centering -->
                     <div class="group light-card film-blue bg-light-card-accent p-5 rounded-xl shadow-xl border border-primary-blue/50 transition duration-300 hover:shadow-neon-blue hover:bg-white flex flex-col h-full lg:col-start-2">
-                        <!-- Height increased to h-80 -->
-                        <div class="w-full h-80 bg-white rounded-lg flex items-center justify-center mb-6 border border-gray-300">
+                        <!-- RESIZED: h-80 changed to h-64 -->
+                        <div class="w-full h-64 bg-white rounded-lg flex items-center justify-center mb-6 border border-gray-300">
                             <p class="text-primary-blue">Short Film Placeholder</p>
                         </div>
                         <h3 class="text-xl font-bold text-primary-dark mb-2 text-center">College Short Film</h3>
-                        <p class="text-sm text-text-muted-dark mb-8 text-center">A dramatic narrative exploring themes of ambition and sacrifice, filmed and edited entirely within a week.</p>
+                        <!-- CLASS ADDED: min-h-16 for normalized size -->
+                        <p class="text-sm text-text-muted-dark min-h-16 mb-8 text-center">A dramatic narrative exploring themes of ambition and sacrifice, filmed and edited entirely within a week.</p>
                         <a class="block text-center bg-primary-blue hover:bg-blue-600 text-white font-semibold py-3 rounded-lg transition duration-200 shadow-md shadow-primary-blue/30 transform hover:-translate-y-1 hover:shadow-xl mt-auto" href="#">View Project</a>
                     </div>
                 </div>
@@ -301,22 +302,24 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     <!-- Assessment 1: Red Theme - Starts at column 2 for centering the pair -->
                     <div class="group light-card assessment-red bg-light-card-red p-5 rounded-xl shadow-xl border border-red-500/50 transition duration-300 hover:shadow-neon-red hover:bg-white flex flex-col h-full lg:col-start-2">
-                        <!-- Height increased to h-80 -->
-                        <div class="w-full h-80 bg-gray-100 rounded-lg flex items-center justify-center mb-6 border border-gray-300">
+                        <!-- RESIZED: h-80 changed to h-64 -->
+                        <div class="w-full h-64 bg-gray-100 rounded-lg flex items-center justify-center mb-6 border border-gray-300">
                             <p class="text-red-500">Assessment File Preview</p>
                         </div>
                         <h3 class="text-xl font-bold text-primary-dark mb-2 text-center">Social Growth Audit (Client X)</h3>
-                        <p class="text-sm text-text-muted-dark mb-8 text-center">A comprehensive audit of a mock client's social channels with strategic recommendations for a Q4 marketing push.</p>
+                        <!-- CLASS ADDED: min-h-16 for normalized size -->
+                        <p class="text-sm text-text-muted-dark min-h-16 mb-8 text-center">A comprehensive audit of a mock client's social channels with strategic recommendations for a Q4 marketing push.</p>
                         <a class="block text-center bg-red-500 hover:bg-red-600 text-white font-semibold py-3 rounded-lg transition duration-200 shadow-md shadow-red-500/30 transform hover:-translate-y-1 hover:shadow-xl mt-auto" href="#">Review Assessment</a>
                     </div>
                     <!-- Assessment 2: Red Theme -->
                     <div class="group light-card assessment-red bg-light-card-red p-5 rounded-xl shadow-xl border border-red-500/50 transition duration-300 hover:shadow-neon-red hover:bg-white flex flex-col h-full">
-                        <!-- Height increased to h-80 -->
-                        <div class="w-full h-80 bg-gray-100 rounded-lg flex items-center justify-center mb-6 border border-gray-300">
+                        <!-- RESIZED: h-80 changed to h-64 -->
+                        <div class="w-full h-64 bg-gray-100 rounded-lg flex items-center justify-center mb-6 border border-gray-300">
                             <p class="text-red-500">Content Calendar Draft</p>
                         </div>
                         <h3 class="text-xl font-bold text-primary-dark mb-2 text-center">1-Week Video Content Plan</h3>
-                        <p class="text-sm text-text-muted-dark mb-8 text-center">Detailed script and visual concept breakdown for 7 days of short-form video content production.</p>
+                        <!-- CLASS ADDED: min-h-16 for normalized size -->
+                        <p class="text-sm text-text-muted-dark min-h-16 mb-8 text-center">Detailed script and visual concept breakdown for 7 days of short-form video content production.</p>
                         <a class="block text-center bg-red-500 hover:bg-red-600 text-white font-semibold py-3 rounded-lg transition duration-200 shadow-md shadow-red-500/30 transform hover:-translate-y-1 hover:shadow-xl mt-auto" href="#">View Plan</a>
                     </div>
                 </div>
@@ -325,27 +328,30 @@
             <!-- 3. CANVA DESIGNS (Yellow Theme) -->
             <section id="canvaart" class="mb-16 animate-section-in delay-5">
                 <h3 class="text-2xl font-bold text-primary-dark mb-4">Canva & Graphic Design</h3>
-                <p class="text-text-muted-dark mb-8 max-w-3xl">This is a custom section to make the strategy section consistent with other sections</p>
+                <!-- UPDATED DESCRIPTION -->
+                <p class="text-text-muted-dark mb-8 max-w-3xl">A selection of my best graphic design work, utilizing Canva and other tools to create high-impact social media creatives and infographics.</p>
                 <!-- Grid remains lg:grid-cols-4 for the 2-card layout -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     <!-- Canva 1: Yellow Theme - Starts at column 2 for centering the pair -->
                     <div class="group light-card canva-yellow bg-light-card-yellow p-5 rounded-xl shadow-xl border border-amber-400/50 transition duration-300 hover:shadow-neon-yellow hover:bg-white flex flex-col h-full lg:col-start-2">
-                        <!-- Height increased to h-80 -->
-                        <div class="w-full h-80 bg-white rounded-lg flex items-center justify-center mb-6 border border-gray-300">
+                        <!-- RESIZED: h-80 changed to h-64 -->
+                        <div class="w-full h-64 bg-white rounded-lg flex items-center justify-center mb-6 border border-gray-300">
                             <p class="text-amber-500">Poster Placeholder</p>
                         </div>
                         <h3 class="text-xl font-bold text-primary-dark mb-2 text-center">Canva Poster Edit 1</h3>
-                        <p class="text-sm text-text-muted-dark mb-8 text-center">Social media poster focusing on clean typography and high contrast visuals for a tech startup launch event.</p>
+                        <!-- CLASS ADDED: min-h-16 for normalized size -->
+                        <p class="text-sm text-text-muted-dark min-h-16 mb-8 text-center">Social media poster focusing on clean typography and high contrast visuals for a tech startup launch event.</p>
                         <a class="block text-center bg-amber-500 hover:bg-amber-600 text-primary-dark font-semibold py-3 rounded-lg transition duration-200 shadow-md shadow-amber-500/30 transform hover:-translate-y-1 hover:shadow-xl mt-auto" href="#">See Design</a>
                     </div>
                     <!-- Canva 2: Yellow Theme -->
                     <div class="group light-card canva-yellow bg-light-card-yellow p-5 rounded-xl shadow-xl border border-amber-400/50 transition duration-300 hover:shadow-neon-yellow hover:bg-white flex flex-col h-full">
-                        <!-- Height increased to h-80 -->
-                        <div class="w-full h-80 bg-white rounded-lg flex items-center justify-center mb-6 border border-gray-300">
+                        <!-- RESIZED: h-80 changed to h-64 -->
+                        <div class="w-full h-64 bg-white rounded-lg flex items-center justify-center mb-6 border border-gray-300">
                             <p class="text-amber-500">Poster Placeholder</p>
                         </div>
                         <h3 class="text-xl font-bold text-primary-dark mb-2 text-center">Canva Poster Edit 2</h3>
-                        <p class="text-sm text-text-muted-dark mb-8 text-center">Infographic design simplifying complex data on market growth for a client presentation.</p>
+                        <!-- CLASS ADDED: min-h-16 for normalized size -->
+                        <p class="text-sm text-text-muted-dark min-h-16 mb-8 text-center">Infographic design simplifying complex data on market growth for a client presentation.</p>
                         <a class="block text-center bg-amber-500 hover:bg-amber-600 text-primary-dark font-semibold py-3 rounded-lg transition duration-200 shadow-md shadow-amber-500/30 transform hover:-translate-y-1 hover:shadow-xl mt-auto" href="#">See Design</a>
                     </div>
                 </div>
@@ -354,19 +360,21 @@
             <!-- 4. CONTENT STRATEGY (Green/Teal Theme) -->
             <section id="contentcalendar" class="mb-20 animate-section-in delay-6">
                 <h3 class="text-2xl font-bold text-primary-dark mb-4">Content Strategy & Planning</h3>
-                <p class="text-text-muted-dark mb-8 max-w-3xl">This is a custom section to make the strategy section consistent with other sections</p>
+                <!-- UPDATED DESCRIPTION -->
+                <p class="text-text-muted-dark mb-8 max-w-3xl">Demonstrating strategic vision through long-term content plans, market audits, and detailed performance metric roadmaps.</p>
                 <!-- UPDATED GRID: Changed to lg:grid-cols-3 for centering the single card (Empty | Card | Empty) -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Strategy Card - Starts at column 2 for centering -->
                     <div class="group strategy-green dark-strategy-gradient text-white p-5 rounded-xl shadow-3xl border-2 border-teal-400 transition duration-300 hover:shadow-neon-green flex flex-col h-full lg:col-start-2">
                         <!-- Strategy: DARK/PREMIUM THEME -->
-                        <!-- Placeholder Darkened and Height increased to h-80 -->
-                        <div class="w-full h-80 bg-gray-700 rounded-lg flex items-center justify-center mb-6 border border-teal-400/50">
+                        <!-- Placeholder Darkened and Height increased to h-64 -->
+                        <div class="w-full h-64 bg-gray-700 rounded-lg flex items-center justify-center mb-6 border border-teal-400/50">
                             <p class="text-teal-400 font-semibold">Strategy Document Preview</p>
                         </div>
                         <!-- Text Colors Updated -->
                         <h3 class="text-xl font-bold mb-2 text-center text-white">Q3 2024 Content Strategy</h3>
-                        <p class="text-sm text-gray-300 mb-8 text-center">Detailed 90-day plan outlining content pillars, target metrics, and distribution channels for B2B tech clients.</p>
+                        <!-- CLASS ADDED: min-h-16 for normalized size -->
+                        <p class="text-sm text-gray-300 min-h-16 mb-8 text-center">Detailed 90-day plan outlining content pillars, target metrics, and distribution channels for B2B tech clients.</p>
                         <!-- Button remains Teal/White for consistency -->
                         <a class="block text-center bg-teal-500 hover:bg-teal-600 text-white font-semibold py-3 rounded-lg transition duration-200 shadow-md shadow-teal-500/30 transform hover:-translate-y-1 hover:shadow-xl mt-auto" href="#">View Strategy</a>
                     </div>
