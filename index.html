@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aditya Mahale — Digital Marketer & Content Creator</title>
-    <!-- Load Tailwind CSS --><script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <script>
         // Tailwind Configuration
@@ -86,11 +86,11 @@
 
             function startSpeechLoop() {
                 // Timing constants in milliseconds
-                const FADE_DURATION = 500;   // CSS opacity transition time
-                const SHORT_PAUSE = 500;     // Time fully hidden between phrases
-                const LONG_PAUSE = 1000;     // Time fully hidden before restart
-                const HI_DISPLAY = 1000;     // Time "Hi!" is fully visible (after fade-in)
-                const NAME_DISPLAY = 2000;   // Time name is fully visible (after fade-in)
+                const FADE_DURATION = 500;  // CSS opacity transition time
+                const SHORT_PAUSE = 500;    // Time fully hidden between phrases
+                const LONG_PAUSE = 1000;    // Time fully hidden before restart
+                const HI_DISPLAY = 1000;    // Time "Hi!" is fully visible (after fade-in)
+                const NAME_DISPLAY = 2000;  // Time name is fully visible (after fade-in)
                 
                 // Cumulative Time Tracking
                 let cumulativeTime = 0;
@@ -215,21 +215,23 @@
         
         /* 1. Horizontal Slide-In (moves the container from off-screen left to position) */
         @keyframes robotSlideIn {
-            0% { transform: translateX(-150px); } 
+            /* INCREASED from -180px to -210px for the new size */
+            0% { transform: translateX(-210px); } 
             100% { transform: translateX(0); } 
         }
 
-        /* 2. Walk Motion (DISABLING for GIF, kept properties for slide/stop) */
+        /* 2. Walk Motion (subtle bob) */
         @keyframes walkMotion {
-            /* Kept subtle infinite bob, though GIF has its own movement */
+            /* INCREASED from -3px to -4px for a slightly larger bob to match the size */
             0%, 100% { transform: translateY(0px) rotate(0deg); }
-            10%, 30%, 50%, 70%, 90% { transform: translateY(-2px) rotate(3deg); }
+            10%, 30%, 50%, 70%, 90% { transform: translateY(-4px) rotate(3deg); }
         }
 
         /* Class for the overall slide effect */
         .robot-entry-container {
             /* Start position before animation runs, hidden by parent overflow */
-            transform: translateX(-150px); 
+            /* INCREASED from -180px to -210px */
+            transform: translateX(-210px); 
             animation: robotSlideIn 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; 
         }
 
@@ -242,8 +244,9 @@
 
         /* New styling for the image */
         .robot-image {
-            width: 32px; /* Set a fixed size for the image/GIF */
-            height: 32px;
+            /* INCREASED from 40px to 56px (w-14, h-14) */
+            width: 56px; 
+            height: 56px;
             object-fit: contain; /* Ensure the image fits nicely */
         }
         
@@ -261,34 +264,25 @@
 </head>
 <body class="text-primary-dark">
 
-    <!-- 1. FIXED HEADER/NAVIGATION --><header class="fixed top-0 left-0 w-full bg-card-bg-light shadow-md z-50">
-        <!-- Added overflow-hidden to prevent horizontal scroll during robot entry -->
+    <header class="fixed top-0 left-0 w-full bg-card-bg-light shadow-md z-50">
         <div class="container mx-auto px-4 sm:px-8 lg:px-24 py-4 flex justify-between items-center overflow-hidden">
             
-            <!-- Logo/Name Area (Now the Robot Link) -->
             <a href="#" class="flex items-center hover:opacity-80 transition duration-200">
-                <!-- Fallback for mobile (since robot is sm:flex) -->
                 <span class="sm:hidden text-xl font-bold text-primary-dark">Home</span>
 
-                <!-- Robot Group. The slide-in animation is applied to this container -->
                 <div class="flex items-center space-x-2 robot-entry-container">
-                    <!-- === ROBOT ANIMATION CONTAINER (Desktop/Tablet Only) === -->
-                    <div id="robot-animation" class="hidden sm:flex items-center h-full pt-1">
-                        <!-- Robot Visual (Walking). Image source updated to GIF -->
+                    <div id="robot-animation" class="hidden sm:flex items-center h-full">
                         <span id="robot-visual" class="inline-block robot-visual-motion">
-                            <img src="https://uploads.onecompiler.io/43u9fwcax/43z4mxsz9/chatbot.gif" alt="Animated Robot Mascot" class="robot-image" onerror="this.onerror=null;this.src='https://placehold.co/32x32/111827/ffffff?text=ROBO'" />
+                            <img src="https://uploads.onecompiler.io/43u9fwcax/43z4mxsz9/chatbot.gif" alt="Animated Robot Mascot" class="robot-image" onerror="this.onerror=null;this.src='https://placehold.co/56x56/111827/ffffff?text=ROBO'" />
                         </span>
-                        <!-- Robot Speech Bubble (Visibility now managed by JS) -->
-                        <div id="robot-speech" class="ml-1 bg-secondary-pink text-white text-xs font-bold px-2 py-0.5 rounded-xl shadow-md robot-speech-bubble">
-                            <!-- Content will be set by JS -->
-                        </div>
+                        <div id="robot-speech" class="ml-1 bg-secondary-pink text-white text-sm font-bold px-3 py-1 rounded-xl shadow-md robot-speech-bubble">
+                            </div>
                     </div>
-                    <!-- ===================================== -->
-                </div>
+                    </div>
             </a>
 
 
-            <!-- Desktop Navigation --><nav class="hidden md:flex space-x-6 font-semibold">
+            <nav class="hidden md:flex space-x-6 font-semibold">
                 <a class="text-primary-dark hover:text-primary-blue transition duration-200" href="#reels">Reels</a>
                 <a class="text-primary-dark hover:text-primary-blue transition duration-200" href="#shortfilms">Films</a>
                 <a class="text-primary-dark hover:text-primary-blue transition duration-200" href="#assessment">Assessment</a>
@@ -297,8 +291,8 @@
                 <a class="text-primary-dark hover:text-secondary-pink transition duration-200" href="#contact">Contact</a>
             </nav>
 
-            <!-- Mobile Menu Button --><button class="md:hidden p-2 rounded-lg text-primary-dark hover:bg-gray-100" onclick="toggleMobileMenu()">
-                <!-- SVG Hamburger Icon --><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <button class="md:hidden p-2 rounded-lg text-primary-dark hover:bg-gray-100" onclick="toggleMobileMenu()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <line x1="4" x2="20" y1="12" y2="12" />
                     <line x1="4" x2="20" y1="6" y2="6" />
                     <line x1="4" x2="20" y1="18" y2="18" />
@@ -306,7 +300,7 @@
             </button>
         </div>
 
-        <!-- Mobile Menu Dropdown --><nav id="mobile-menu" class="hidden md:hidden px-4 pb-4 border-t border-gray-200 bg-card-bg-light">
+        <nav id="mobile-menu" class="hidden md:hidden px-4 pb-4 border-t border-gray-200 bg-card-bg-light">
             <a class="block py-2 text-primary-dark hover:text-primary-blue transition duration-200 font-semibold uppercase" href="#reels">Short-Form Reels</a>
             <a class="block py-2 text-primary-dark hover:text-primary-blue transition duration-200 font-semibold uppercase" href="#shortfilms">Short Film</a>
             <a class="block py-2 text-primary-dark hover:text-red-600 transition duration-200 font-semibold uppercase" href="#assessment">Interview Assessment</a>
@@ -317,12 +311,10 @@
     </header>
 
 
-    <!-- Main Content Container -->
     <div class="container mx-auto px-4 sm:px-8 lg:px-24 py-12">
         <main>
-            <!-- HERO SECTION --><section class="mb-20 pt-8 md:pt-12">
+            <section class="mb-20 pt-8 md:pt-12">
                 <div class="bg-card-bg-light p-8 md:p-12 rounded-2xl shadow-2xl border border-gray-200 animate-section-in delay-0">
-                    <!-- REMOVED: <p class="text-sm font-semibold text-primary-blue mb-2">Hi — I'm Aditya Mahale</p> -->
                     <h2 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4 text-primary-dark animate-hero-text">
                         Digital Marketing,<br>
                         <span class="text-secondary-pink">Video Editing & Content Design.</span>
@@ -345,166 +337,121 @@
                 </div>
             </section>
 
-            <!-- PROJECT DIVIDER --><div id="projects" class="animate-section-in delay-1">
+            <div id="projects" class="animate-section-in delay-1">
                 <h2 class="text-4xl font-extrabold mb-10 text-primary-dark border-b-2 pb-3 border-gray-300">Selected Portfolio</h2>
             </div>
 
-            <!-- REELS SECTION -->
             <section id="reels" class="mb-16 animate-section-in delay-2">
                 <h3 class="text-2xl font-bold mb-4 text-secondary-pink">Short-Form Reels</h3>
                 <p class="text-text-muted-dark mb-8 max-w-3xl">High-engagement, high-velocity content optimized for Instagram and LinkedIn. These projects feature a vibrant, light aesthetic.</p>
-                <!-- GRID: lg:grid-cols-3 (1/3 width) is maintained -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
-                    <!-- Reel 1: Card now occupies full grid cell width -->
                     <div class="group light-card reel-pink bg-light-reel-pink p-5 rounded-xl shadow-xl border border-secondary-pink/50 transition duration-300 hover:shadow-neon-pink hover:bg-white flex flex-col h-full">
-                        <!-- UPDATED TO H-80 -->
                         <div class="w-full h-80 bg-gray-100 rounded-lg flex items-center justify-center mb-6 border border-gray-300">
                             <p class="text-secondary-pink">Video Placeholder</p>
                         </div>
                         <h3 class="text-2xl font-bold text-primary-dark mb-2 text-center">Personal Reel 1</h3>
-                        <!-- CLASS ADDED: min-h-16 for normalized size -->
                         <p class="text-sm text-text-muted-dark min-h-16 mb-8 text-center">A fast-paced, motivational reel covering self-improvement topics. Focus on dynamic text and cuts.</p>
                         <a class="block text-center bg-secondary-pink hover:bg-pink-600 text-white font-bold py-3 rounded-lg transition duration-200 shadow-md shadow-secondary-pink/30 transform hover:-translate-y-1 hover:shadow-xl mt-auto" href="#">Watch Reel</a>
                     </div>
-                    <!-- Reel 2: Light Purple Theme -->
                     <div class="group light-card reel-purple bg-light-reel-purple p-5 rounded-xl shadow-xl border border-purple-400/50 transition duration-300 hover:shadow-neon-purple hover:bg-white flex flex-col h-full">
-                        <!-- UPDATED TO H-80 -->
                         <div class="w-full h-80 bg-gray-100 rounded-lg flex items-center justify-center mb-6 border border-gray-300">
                             <p class="text-purple-500">Video Placeholder</p>
                         </div>
                         <h3 class="text-2xl font-bold text-primary-dark mb-2 text-center">Travel Diaries</h3>
-                        <!-- CLASS ADDED: min-h-16 for normalized size -->
                         <p class="text-sm text-text-muted-dark min-h-16 mb-8 text-center">Slow-motion B-roll and cinematic editing highlighting recent travel experiences in Asia.</p>
                         <a class="block text-center bg-purple-500 hover:bg-purple-600 text-white font-bold py-3 rounded-lg transition duration-200 shadow-md shadow-purple-500/30 transform hover:-translate-y-1 hover:shadow-xl mt-auto" href="#">Catch the Vibe</a>
                     </div>
-                    <!-- Reel 3: Light Cyan Theme -->
                     <div class="group light-card reel-cyan bg-light-reel-cyan p-5 rounded-xl shadow-xl border border-cyan-400/50 transition duration-300 hover:shadow-neon-cyan hover:bg-white flex flex-col h-full">
-                        <!-- UPDATED TO H-80 -->
                         <div class="w-full h-80 bg-gray-100 rounded-lg flex items-center justify-center mb-6 border border-gray-300">
                             <p class="text-cyan-500">Action Video Here</p>
                         </div>
                         <h3 class="text-2xl font-bold text-primary-dark mb-2 text-center">Daily Workout Routine</h3>
-                        <!-- CLASS ADDED: min-h-16 for normalized size -->
                         <p class="text-sm text-text-muted-dark min-h-16 mb-8 text-center">High-energy fitness segment designed to maximize motivation and share quick tips for morning exercise.</p>
                         <a class="block text-center bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 rounded-lg transition duration-200 shadow-md shadow-cyan-500/30 transform hover:-translate-y-1 hover:shadow-xl mt-auto" href="#">Start Challenge</a>
                     </div>
                 </div>
             </section>
 
-            <!-- SHORT FILM -->
             <section id="shortfilms" class="mb-16 animate-section-in delay-3">
                 <h3 class="text-2xl font-bold mb-4 text-primary-dark">Short Film</h3>
-                <!-- MODIFIED: Changed from lg:grid-cols-1 to lg:grid-cols-3 to match Reel card width and keep consistency with the new Strategy section below -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
-                    <!-- Short Film: Centered to 1/3 width -->
                     <div class="group light-card film-blue bg-light-card-accent p-5 rounded-xl shadow-xl border border-primary-blue/50 transition duration-300 hover:shadow-neon-blue hover:bg-white flex flex-col h-full lg:col-start-2">
-                        <!-- UPDATED TO H-80 -->
                         <div class="w-full h-80 bg-white rounded-lg flex items-center justify-center mb-6 border border-gray-300">
                             <p class="text-primary-blue">Short Film Placeholder</p>
                         </div>
                         <h3 class="text-xl font-bold text-primary-dark mb-2 text-center">College Short Film</h3>
-                        <!-- CLASS ADDED: min-h-16 for normalized size -->
                         <p class="text-sm text-text-muted-dark min-h-16 mb-8 text-center">A dramatic narrative exploring themes of ambition and sacrifice, filmed and edited entirely within a week.</p>
                         <a class="block text-center bg-primary-blue hover:bg-blue-600 text-white font-semibold py-3 rounded-lg transition duration-200 shadow-md shadow-primary-blue/30 transform hover:-translate-y-1 hover:shadow-xl mt-auto" href="#">View Project</a>
                     </div>
                 </div>
             </section>
             
-            <!-- INTERVIEW ASSESSMENT SECTION (MOVED HERE) -->
             <section id="assessment" class="mb-20 animate-section-in delay-4">
                 <h3 class="text-2xl font-bold mb-4 text-red-600">Interview Assessment</h3>
                 <p class="text-text-muted-dark mb-8 max-w-3xl">Review mock assignments and practical tasks completed during interview processes, demonstrating skill and strategic thinking.</p>
-                <!-- MODIFIED: Changed to lg:grid-cols-6 for 1/3 width centering -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-16">
-                    <!-- Assessment 1: Narrowed to 1/3 width and centered -->
                     <div class="group light-card assessment-red bg-light-card-red p-5 rounded-xl shadow-xl border border-red-500/50 transition duration-300 hover:shadow-neon-red hover:bg-white flex flex-col h-full lg:col-start-2 lg:col-span-2">
-                        <!-- UPDATED TO H-80 -->
                         <div class="w-full h-80 bg-gray-100 rounded-lg flex items-center justify-center mb-6 border border-gray-300">
                             <p class="text-red-500">Assessment File Preview</p>
                         </div>
                         <h3 class="text-xl font-bold text-primary-dark mb-2 text-center">Social Growth Audit (Client X)</h3>
-                        <!-- CLASS ADDED: min-h-16 for normalized size -->
                         <p class="text-sm text-text-muted-dark min-h-16 mb-8 text-center">A comprehensive audit of a mock client's social channels with strategic recommendations for a Q4 marketing push.</p>
                         <a class="block text-center bg-red-500 hover:bg-red-600 text-white font-semibold py-3 rounded-lg transition duration-200 shadow-md shadow-red-500/30 transform hover:-translate-y-1 hover:-shadow-xl mt-auto" href="#">Review Assessment</a>
                     </div>
-                    <!-- Assessment 2: Narrowed to 1/3 width -->
                     <div class="group light-card assessment-red bg-light-card-red p-5 rounded-xl shadow-xl border border-red-500/50 transition duration-300 hover:shadow-neon-red hover:bg-white flex flex-col h-full lg:col-span-2">
-                        <!-- UPDATED TO H-80 -->
                         <div class="w-full h-80 bg-gray-100 rounded-lg flex items-center justify-center mb-6 border border-gray-300">
                             <p class="text-red-500">Content Calendar Draft</p>
                         </div>
                         <h3 class="text-xl font-bold text-primary-dark mb-2 text-center">1-Week Video Content Plan</h3>
-                        <!-- CLASS ADDED: min-h-16 for normalized size -->
                         <p class="text-sm text-text-muted-dark min-h-16 mb-8 text-center">Detailed script and visual concept breakdown for 7 days of short-form video content production.</p>
                         <a class="block text-center bg-red-500 hover:bg-red-600 text-white font-semibold py-3 rounded-lg transition duration-200 shadow-md shadow-red-500/30 transform hover:-translate-y-1 hover:-shadow-xl mt-auto" href="#">View Plan</a>
                     </div>
                 </div>
             </section>
 
-            <!-- 3. CANVA DESIGNS (Yellow Theme) -->
             <section id="canvaart" class="mb-16 animate-section-in delay-5">
                 <h3 class="text-2xl font-bold text-primary-dark mb-4">Canva & Graphic Design</h3>
-                <!-- UPDATED DESCRIPTION -->
                 <p class="text-text-muted-dark mb-8 max-w-3xl">A selection of my best graphic design work, utilizing Canva and other tools to create high-impact social media creatives and infographics.</p>
-                <!-- MODIFIED: Changed to lg:grid-cols-6 for 1/3 width centering -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-16">
-                    <!-- Canva 1: Narrowed to 1/3 width and centered -->
                     <div class="group light-card canva-yellow bg-light-card-yellow p-5 rounded-xl shadow-xl border border-amber-400/50 transition duration-300 hover:shadow-neon-yellow hover:bg-white flex flex-col h-full lg:col-start-2 lg:col-span-2">
-                        <!-- UPDATED TO H-80 -->
                         <div class="w-full h-80 bg-white rounded-lg flex items-center justify-center mb-6 border border-gray-300">
                             <p class="text-amber-500">Poster Placeholder</p>
                         </div>
                         <h3 class="text-xl font-bold text-primary-dark mb-2 text-center">Canva Poster Edit 1</h3>
-                        <!-- CLASS ADDED: min-h-16 for normalized size -->
                         <p class="text-sm text-text-muted-dark min-h-16 mb-8 text-center">Social media poster focusing on clean typography and high contrast visuals for a tech startup launch event.</p>
                         <a class="block text-center bg-amber-500 hover:bg-amber-600 text-primary-dark font-semibold py-3 rounded-lg transition duration-200 shadow-md shadow-amber-500/30 transform hover:-translate-y-1 hover:-shadow-xl mt-auto" href="#">See Design</a>
                     </div>
-                    <!-- Canva 2: Narrowed to 1/3 width -->
                     <div class="group light-card canva-yellow bg-light-card-yellow p-5 rounded-xl shadow-xl border border-amber-400/50 transition duration-300 hover:shadow-neon-yellow hover:bg-white flex flex-col h-full lg:col-span-2">
-                        <!-- UPDATED TO H-80 -->
                         <div class="w-full h-80 bg-white rounded-lg flex items-center justify-center mb-6 border border-gray-300">
                             <p class="text-amber-500">Poster Placeholder</p>
                         </div>
                         <h3 class="text-xl font-bold text-primary-dark mb-2 text-center">Canva Poster Edit 2</h3>
-                        <!-- CLASS ADDED: min-h-16 for normalized size -->
                         <p class="text-sm text-text-muted-dark min-h-16 mb-8 text-center">Infographic design simplifying complex data on market growth for a client presentation.</p>
                         <a class="block text-center bg-amber-500 hover:bg-amber-600 text-primary-dark font-semibold py-3 rounded-lg transition duration-200 shadow-md shadow-amber-500/30 transform hover:-translate-y-1 hover:-shadow-xl mt-auto" href="#">See Design</a>
                     </div>
                 </div>
             </section>
 
-            <!-- 4. CONTENT STRATEGY (Green/Teal Theme) -->
             <section id="contentcalendar" class="mb-20 animate-section-in delay-6">
                 <h3 class="text-2xl font-bold text-primary-dark mb-4">Content Strategy & Planning</h3>
-                <!-- UPDATED DESCRIPTION -->
                 <p class="text-text-muted-dark mb-8 max-w-3xl">Demonstrating strategic vision through long-term content plans, market audits, and detailed performance metric roadmaps.</p>
-                <!-- MODIFIED: Changed from lg:grid-cols-1 to lg:grid-cols-3 to match Reel card width and keep consistency with the new Short Film section above -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
-                    <!-- Strategy Card - Centered to 1/3 width -->
                     <div class="group strategy-green dark-strategy-gradient text-white p-5 rounded-xl shadow-3xl border-2 border-teal-400 transition duration-300 hover:shadow-neon-green flex flex-col h-full lg:col-start-2">
-                        <!-- UPDATED TO H-80 -->
                         <div class="w-full h-80 bg-gray-700 rounded-lg flex items-center justify-center mb-6 border border-teal-400/50">
                             <p class="text-teal-400 font-semibold">Strategy Document Preview</p>
                         </div>
-                        <!-- Text Colors Updated -->
                         <h3 class="text-xl font-bold text-white mb-2 text-center">Q3 2024 Content Strategy</h3>
-                        <!-- CLASS ADDED: min-h-16 for normalized size -->
                         <p class="text-sm text-gray-300 min-h-16 mb-8 text-center">Detailed 90-day plan outlining content pillars, target metrics, and distribution channels for B2B tech clients.</p>
-                        <!-- Button remains Teal/White for consistency -->
                         <a class="block text-center bg-teal-500 hover:bg-teal-600 text-white font-semibold py-3 rounded-lg transition duration-200 shadow-md shadow-teal-500/30 transform hover:-translate-y-1 hover:shadow-xl mt-auto" href="#">View Strategy</a>
                     </div>
                 </div>
             </section>
 
-            <!-- CONTACT SECTION --><section id="contact" class="mb-20 pt-8 animate-section-in delay-5">
-                <!-- UPDATED HEADING -->
+            <section id="contact" class="mb-20 pt-8 animate-section-in delay-5">
                 <h2 class="text-4xl font-extrabold mb-2 text-primary-dark text-center">Need Sauce? I’m the secret ingredient.</h2>
                 <div class="bg-card-bg-light p-8 rounded-xl shadow-xl border border-gray-200 max-w-4xl mx-auto">
-                    <!-- UPDATED DESCRIPTION -->
                     <p class="text-text-muted-dark mb-6 text-center">Connect with me to discuss your next big idea!</p>
-                    <!-- Form updated to use Formspree for real email delivery (manpplpv added) -->
                     <form method="POST" action="https://formspree.io/f/manpplpv" class="space-y-4">
-                        <!-- Honeypot field for spam prevention -->
                         <input type="text" name="_gotcha" style="display:none" />
                         
                         <input required placeholder="Your Name" name="name" class="w-full p-3 rounded-lg bg-gray-100 border border-gray-300 text-primary-dark placeholder-gray-500 focus:border-primary-blue focus:ring-1 focus:ring-primary-blue transition">
@@ -513,7 +460,6 @@
                         <button class="w-full bg-secondary-pink hover:bg-pink-600 text-white font-bold py-3 rounded-lg transition duration-200 shadow-md shadow-secondary-pink/30" type="submit">Send Message</button>
                     </form>
                     
-                    <!-- NOTE: Success message div is now unused, as Formspree redirects on success. -->
                     <div id="success-message" class="hidden items-center justify-center p-4 mt-6 rounded-lg bg-green-100 border border-green-300 text-green-700 font-semibold">
                         <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                         <p>Thank thank you! Your message has been sent successfully.</p>
