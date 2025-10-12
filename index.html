@@ -162,7 +162,32 @@
         .delay-4 { animation-delay: 0.8s; } 
         .delay-5 { animation-delay: 1.0s; } 
         .delay-6 { animation-delay: 1.2s; }
-        /* --- END NEW ANIMATIONS --- */
+        
+        /* --- ROBOT ANIMATION STYLES --- */
+        /* Walk animation: side-to-side rotation to simulate walking motion */
+        @keyframes walk {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-2px) rotate(3deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+        
+        /* Speech bubble pop-in animation */
+        @keyframes speechPop {
+            0% { opacity: 0; transform: scale(0.5); }
+            50% { opacity: 1; transform: scale(1.1); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .robot-walk-animation {
+            animation: walk 0.5s infinite alternate ease-in-out 1.5s; /* Start the walk after 1.5s delay */
+            transform-origin: bottom; 
+        }
+        
+        .robot-speak-animation {
+            opacity: 0;
+            animation: speechPop 0.5s ease-out 1.5s forwards; /* Speech bubble pops in after 1.5s */
+        }
+        /* --- END ROBOT ANIMATION STYLES --- */
     </style>
 </head>
 <body class="text-primary-dark">
@@ -170,7 +195,24 @@
     <!-- 1. FIXED HEADER/NAVIGATION --><header class="fixed top-0 left-0 w-full bg-card-bg-light shadow-md z-50">
         <!-- UPDATED: Increased lg:px-12 to lg:px-24 for wider header margin -->
         <div class="container mx-auto px-4 sm:px-8 lg:px-24 py-4 flex justify-between items-center">
-            <!-- Logo/Name --><a href="#" class="text-xl font-bold text-primary-dark hover:text-primary-blue transition duration-200">A. Mahale</a>
+            
+            <!-- Logo/Name and Robot Group -->
+            <div class="flex items-center space-x-2">
+                <!-- Logo/Name -->
+                <a href="#" class="text-xl font-bold text-primary-dark hover:text-primary-blue transition duration-200">A. Mahale</a>
+                
+                <!-- === ROBOT ANIMATION CONTAINER (Desktop/Tablet Only) === -->
+                <div id="robot-animation" class="hidden sm:flex items-center h-full pt-1">
+                    <!-- Robot Visual (Walking) -->
+                    <span id="robot-visual" class="text-2xl inline-block robot-walk-animation">🤖</span>
+                    <!-- Robot Speech Bubble -->
+                    <div id="robot-speech" class="ml-1 bg-secondary-pink text-white text-xs font-bold px-2 py-0.5 rounded-xl shadow-md robot-speak-animation">
+                        Hi!
+                    </div>
+                </div>
+                <!-- ===================================== -->
+            </div>
+
 
             <!-- Desktop Navigation --><nav class="hidden md:flex space-x-6 font-semibold">
                 <a class="text-primary-dark hover:text-primary-blue transition duration-200" href="#reels">Reels</a>
