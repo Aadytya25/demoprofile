@@ -219,9 +219,9 @@
             100% { transform: translateX(0); } 
         }
 
-        /* 2. Walk Motion (wobbles the robot icon only during the slide duration) */
+        /* 2. Walk Motion (DISABLING for GIF, kept properties for slide/stop) */
         @keyframes walkMotion {
-            /* CHANGE: Looping infinitely now for continuous movement */
+            /* Kept subtle infinite bob, though GIF has its own movement */
             0%, 100% { transform: translateY(0px) rotate(0deg); }
             10%, 30%, 50%, 70%, 90% { transform: translateY(-2px) rotate(3deg); }
         }
@@ -233,11 +233,18 @@
             animation: robotSlideIn 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; 
         }
 
-        /* Class for the visual walk motion (runs during the slide) */
+        /* Class for the visual motion */
         .robot-visual-motion {
-            /* CHANGE: Removed forwards, added infinite, adjusted time for continuous loop */
+            /* Re-applying infinite loop for visual continuity even if GIF is used */
             animation: walkMotion 0.6s ease-in-out infinite; 
             transform-origin: bottom; 
+        }
+
+        /* New styling for the image */
+        .robot-image {
+            width: 32px; /* Set a fixed size for the image/GIF */
+            height: 32px;
+            object-fit: contain; /* Ensure the image fits nicely */
         }
         
         /* Speech bubble visibility managed by JS and custom CSS */
@@ -267,8 +274,10 @@
                 <div class="flex items-center space-x-2 robot-entry-container">
                     <!-- === ROBOT ANIMATION CONTAINER (Desktop/Tablet Only) === -->
                     <div id="robot-animation" class="hidden sm:flex items-center h-full pt-1">
-                        <!-- Robot Visual (Walking). The walk motion animation is applied here -->
-                        <span id="robot-visual" class="text-2xl inline-block robot-visual-motion">🤖</span>
+                        <!-- Robot Visual (Walking). Image source updated to GIF -->
+                        <span id="robot-visual" class="inline-block robot-visual-motion">
+                            <img src="https://uploads.onecompiler.io/43u9fwcax/43z4mxsz9/chatbot.gif" alt="Animated Robot Mascot" class="robot-image" onerror="this.onerror=null;this.src='https://placehold.co/32x32/111827/ffffff?text=ROBO'" />
+                        </span>
                         <!-- Robot Speech Bubble (Visibility now managed by JS) -->
                         <div id="robot-speech" class="ml-1 bg-secondary-pink text-white text-xs font-bold px-2 py-0.5 rounded-xl shadow-md robot-speech-bubble">
                             <!-- Content will be set by JS -->
@@ -448,7 +457,7 @@
                         <h3 class="text-xl font-bold text-primary-dark mb-2 text-center">Canva Poster Edit 1</h3>
                         <!-- CLASS ADDED: min-h-16 for normalized size -->
                         <p class="text-sm text-text-muted-dark min-h-16 mb-8 text-center">Social media poster focusing on clean typography and high contrast visuals for a tech startup launch event.</p>
-                        <a class="block text-center bg-amber-500 hover:bg-amber-600 text-primary-dark font-semibold py-3 rounded-lg transition duration-200 shadow-md shadow-amber-500/30 transform hover:-translate-y-1 hover:shadow-xl mt-auto" href="#">See Design</a>
+                        <a class="block text-center bg-amber-500 hover:bg-amber-600 text-primary-dark font-semibold py-3 rounded-lg transition duration-200 shadow-md shadow-amber-500/30 transform hover:-translate-y-1 hover:-shadow-xl mt-auto" href="#">See Design</a>
                     </div>
                     <!-- Canva 2: Narrowed to 1/3 width -->
                     <div class="group light-card canva-yellow bg-light-card-yellow p-5 rounded-xl shadow-xl border border-amber-400/50 transition duration-300 hover:shadow-neon-yellow hover:bg-white flex flex-col h-full lg:col-span-2">
@@ -459,7 +468,7 @@
                         <h3 class="text-xl font-bold text-primary-dark mb-2 text-center">Canva Poster Edit 2</h3>
                         <!-- CLASS ADDED: min-h-16 for normalized size -->
                         <p class="text-sm text-text-muted-dark min-h-16 mb-8 text-center">Infographic design simplifying complex data on market growth for a client presentation.</p>
-                        <a class="block text-center bg-amber-500 hover:bg-amber-600 text-primary-dark font-semibold py-3 rounded-lg transition duration-200 shadow-md shadow-amber-500/30 transform hover:-translate-y-1 hover:shadow-xl mt-auto" href="#">See Design</a>
+                        <a class="block text-center bg-amber-500 hover:bg-amber-600 text-primary-dark font-semibold py-3 rounded-lg transition duration-200 shadow-md shadow-amber-500/30 transform hover:-translate-y-1 hover:-shadow-xl mt-auto" href="#">See Design</a>
                     </div>
                 </div>
             </section>
@@ -478,7 +487,7 @@
                             <p class="text-teal-400 font-semibold">Strategy Document Preview</p>
                         </div>
                         <!-- Text Colors Updated -->
-                        <h3 class="text-xl font-bold mb-2 text-center text-white">Q3 2024 Content Strategy</h3>
+                        <h3 class="text-xl font-bold text-white mb-2 text-center">Q3 2024 Content Strategy</h3>
                         <!-- CLASS ADDED: min-h-16 for normalized size -->
                         <p class="text-sm text-gray-300 min-h-16 mb-8 text-center">Detailed 90-day plan outlining content pillars, target metrics, and distribution channels for B2B tech clients.</p>
                         <!-- Button remains Teal/White for consistency -->
