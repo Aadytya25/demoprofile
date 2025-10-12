@@ -123,7 +123,7 @@
                 setTimeout(startSpeechLoop, cumulativeTime);
             }
 
-            // Start the looping sequence after the initial robot walk-in animation finishes
+            // RE-ENABLED: Start the looping sequence after the initial robot walk-in animation finishes
             setTimeout(startSpeechLoop, walkDuration);
         });
     </script>
@@ -211,40 +211,37 @@
         .delay-5 { animation-delay: 1.0s; } 
         .delay-6 { animation-delay: 1.2s; }
         
-        /* --- ROBOT ANIMATION STYLES (UPDATED FOR SLIDE) --- */
+        /* --- ROBOT ANIMATION STYLES (UPDATED: Horizontal slide-in kept, vertical walk removed) --- */
         
-        /* 1. Horizontal Slide-In (moves the container from off-screen left to position) */
+        /* 1. Horizontal Slide-In (re-enabled) */
         @keyframes robotSlideIn {
-            /* INCREASED from -180px to -210px for the new size */
             0% { transform: translateX(-210px); } 
             100% { transform: translateX(0); } 
         }
 
-        /* 2. Walk Motion (subtle bob) */
+        /* 2. Walk Motion (subtle bob) - REMOVED ANIMATION */
         @keyframes walkMotion {
-            /* INCREASED from -3px to -4px for a slightly larger bob to match the size */
+            /* This animation is now only defined but NOT applied to the robot visual element */
             0%, 100% { transform: translateY(0px) rotate(0deg); }
             10%, 30%, 50%, 70%, 90% { transform: translateY(-4px) rotate(3deg); }
         }
 
         /* Class for the overall slide effect */
         .robot-entry-container {
-            /* Start position before animation runs, hidden by parent overflow */
-            /* INCREASED from -180px to -210px */
+            /* RE-ENABLED: Keeps the slide-in animation */
             transform: translateX(-210px); 
             animation: robotSlideIn 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; 
         }
 
         /* Class for the visual motion */
         .robot-visual-motion {
-            /* Re-applying infinite loop for visual continuity even if GIF is used */
-            animation: walkMotion 0.6s ease-in-out infinite; 
+            /* REMOVED: Stops the walking/bobbing loop */
+            /* animation: walkMotion 0.6s ease-in-out infinite; */
             transform-origin: bottom; 
         }
 
-        /* New styling for the image */
+        /* New styling for the image (Kept large size) */
         .robot-image {
-            /* INCREASED from 40px to 56px (w-14, h-14) */
             width: 56px; 
             height: 56px;
             object-fit: contain; /* Ensure the image fits nicely */
@@ -253,7 +250,6 @@
         /* Speech bubble visibility managed by JS and custom CSS */
         .robot-speech-bubble {
             opacity: 0; 
-            /* INCREASED TRANSITION DURATION for smooth fade */
             transition: opacity 0.5s ease-in-out; 
         }
         .robot-speech-bubble.visible {
